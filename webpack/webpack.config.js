@@ -9,6 +9,9 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             hash: true,
+            title: 'My Awesome application',
+            myPageHeader: 'Hello World',
+            template: './src/index.html',
             filename: './dist/index.html' //relative to root of the application
         })
    ]

@@ -2,11 +2,11 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>My Awesome application</title>
+    <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
 
   <body>
-    <h1>Hello World</h1>
+    <h1><%= htmlWebpackPlugin.options.myPageHeader %></h1>
     Some more static content added to html
     <my-app></my-app>
     <img id="appLogo" height="150" width="150" src='images/jsLogo.jpeg' />
@@ -17,5 +17,5 @@
     </div>
 
     <div class="bg-img"></div>
-  <script type="text/javascript" src=".././dist/app.bundle.js?2f713a3c04624498b5b5"></script></body>
+  </body>
 </html>
