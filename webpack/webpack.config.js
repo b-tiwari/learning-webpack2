@@ -1,10 +1,14 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var package     = require('../package.json');
 
 module.exports = {
     
-    entry: "./src/scripts/app.js", //relative to root of the application
+    entry: {
+        app: "./src/scripts/app.js",
+        vendor: Object.keys(package.dependencies)
+    }, 
     output: {
-        filename: "./dist/app.bundle.js" //relative to root of the application
+        filename: "./dist/[name].bundle.js" 
     },
     watch:true,
     resolve: { extensions: [".js", ".ts"] },
