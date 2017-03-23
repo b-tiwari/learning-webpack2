@@ -86,6 +86,8 @@ module.exports = {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__my_helper_module__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__my_helper_module___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__my_helper_module__);
+throw new Error("Cannot find module \"./sharedModule\"");
+
 
 
 console.log("Welcome! Greetings from app.js. Let's learn Webpack2");
