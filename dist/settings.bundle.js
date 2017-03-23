@@ -73,10 +73,18 @@
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-throw new Error("Cannot find module \"./sharedModule\"");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__sharedModule__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__sharedModule___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__sharedModule__);
 
 
 console.log('Hello, its me, settings.js!!!');
+
+/***/ }),
+
+/***/ 7:
+/***/ (function(module, exports) {
+
+console.log('Hello! This is shared-module reporting!');
 
 /***/ })
 
