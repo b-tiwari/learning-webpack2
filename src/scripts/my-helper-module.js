@@ -1,3 +1,3 @@
 module.exports = { 
-    greetings: 'Hello from some-helper-module' 
+    greetings: 'Hello from my-helper-module' 
 };
