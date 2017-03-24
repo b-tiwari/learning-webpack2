@@ -1,5 +1,6 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var package     = require('../package.json');
+var CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
 
 module.exports = {
     entry: {
@@ -13,21 +14,25 @@ module.exports = {
     watch:true,
     resolve: { extensions: [".js", ".ts"] },
     plugins: [
+        new CommonsChunkPlugin({
+                name: 'shared',
+                minChunks: 2
+        }),
         new HtmlWebpackPlugin({
             hash: true,
             title: 'My Awesome application',
             myPageHeader: 'Hello World',
             template: './src/index.html',
-            chunks: ['vendor', 'app'],
-            filename: './dist/index.html' //relative to root of the application
+            chunks: ['vendor', 'shared',  'app'],
+            filename: './dist/index.html' 
         }),
         new HtmlWebpackPlugin({
             hash: true,
             title: 'My Awesome application',
             myPageHeader: 'Settings',
             template: './src/index.html',
-            chunks: ['vendor', 'settings'],
-            filename: './dist/settings.html' //relative to root of the application
+            chunks: ['vendor', 'shared', 'settings'],
+            filename: './dist/settings.html'
         })
    ]
 
