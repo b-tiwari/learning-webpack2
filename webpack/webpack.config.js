@@ -19,6 +19,14 @@ module.exports = {
         contentBase: path.join(__dirname, "../dist/"),
         port: 9000
     },
+    module: {
+        rules: [
+            { 
+                test: /\.css$/, 
+                use: ['style-loader', 'css-loader']
+            }
+        ]
+    },
     plugins: [
         new CommonsChunkPlugin({
             name: 'shared',
