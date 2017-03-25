@@ -5,8 +5,8 @@ var path = require("path");
 
 module.exports = {
     entry: {
+        vendor: Object.keys(package.dependencies),
         app: "./src/scripts/app.js",
-        vendor: Object.keys(package.dependencies),
         settings: "./src/scripts/settings.js"
     }, 
     output: {
@@ -21,16 +21,17 @@ module.exports = {
     },
     plugins: [
         new CommonsChunkPlugin({
-                name: 'shared',
-                minChunks: 2
+            name: 'shared',
+            minChunks: 2
         }),
         new HtmlWebpackPlugin({
             hash: true,
             title: 'My Awesome application',
             myPageHeader: 'Hello World',
             template: './src/index.html',
-            chunks: ['vendor', 'shared',  'app'],
-            filename: './dist/index.html' 
+            chunks: ['vendor', 'shared', 'app'],
+            path: path.join(__dirname, "../dist/"),
+            filename: 'index.html' 
         }),
         new HtmlWebpackPlugin({
             hash: true,
@@ -38,7 +39,8 @@ module.exports = {
             myPageHeader: 'Settings',
             template: './src/index.html',
             chunks: ['vendor', 'shared', 'settings'],
-            filename: './dist/settings.html'
+            path: path.join(__dirname, "../dist/"),
+            filename: 'settings.html'
         })
    ]
 
