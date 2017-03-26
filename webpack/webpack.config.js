@@ -2,6 +2,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var package     = require('../package.json');
 var CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
 var path = require("path");
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -22,12 +23,26 @@ module.exports = {
     module: {
         rules: [
             { 
-                test: /\.css$/, 
-                use: ['style-loader', 'css-loader']
-            }
+                test: /\.(s*)css$/, 
+                use: ExtractTextPlugin.extract({ 
+                        fallback: 'style-loader',
+                        use: ['css-loader','sass-loader'],
+                    })
+            },
+            {
+                test: /\.(png|jp(e*)g|svg)$/,
+                use: [{
+                    loader: 'url-loader',
+                    options: { 
+                        limit: 8000, // Convert images < 8kb to base64 strings
+                        name: 'images/[hash]-[name].[ext]'
+                    } 
+                }]
+            }
         ]
     },
     plugins: [
+        new ExtractTextPlugin({ filename: 'app.bundle.css' }),
         new CommonsChunkPlugin({
             name: 'shared',
             minChunks: 2

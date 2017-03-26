@@ -17233,7 +17233,7 @@
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(13)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4), __webpack_require__(15)(module)))
 
 /***/ }),
 
@@ -17244,7 +17244,7 @@ console.log('Hello! This is shared-module reporting!');
 
 /***/ }),
 
-/***/ 13:
+/***/ 15:
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -17273,7 +17273,7 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ 2:
+/***/ 4:
 /***/ (function(module, exports) {
 
 var g;
