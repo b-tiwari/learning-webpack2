@@ -3,6 +3,7 @@ var package     = require('../package.json');
 var CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
 var path = require("path");
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -64,7 +65,10 @@ module.exports = {
             chunks: ['vendor', 'shared', 'settings'],
             path: path.join(__dirname, "../dist/"),
             filename: 'settings.html'
-        })
+        }),
+        new CopyWebpackPlugin([   
+            {from: 'src/images', to: 'images'}   
+        ]),
    ]
 
 }
