@@ -1,0 +1,12 @@
+div {
+    background-color:#99cc00;
+    padding:10px;
+}
+
+.settingIcon{
+    background-image:url('./../images/settings.png');
+    background-repeat:no-repeat;
+    height:50px;
+    width:50px;
+    display:inline-block;
+}
